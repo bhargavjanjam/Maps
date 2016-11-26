@@ -12,8 +12,8 @@ import java.sql.Timestamp;
 @Table(name = "Rides")
 public class Ride extends Model{
 
-    @Column(name = "rider_id")
-    private long riderId;
+    @Column(name = "vehicle_id")
+    private long vehicleId;
 
     @Column(name = "from_latitude")
     private double fromLatitude;
@@ -37,8 +37,8 @@ public class Ride extends Model{
         super();
     }
 
-    public Ride(long riderId, double fromLatitude, double fromLongitude, double toLatitude, double toLongitude ,Timestamp startTime , int fare) {
-        this.riderId = riderId;
+    public Ride(long vehicleId, double fromLatitude, double fromLongitude, double toLatitude, double toLongitude ,Timestamp startTime , int fare) {
+        this.vehicleId = vehicleId;
         this.fromLatitude = fromLatitude;
         this.fromLongitude = fromLongitude;
         this.toLatitude = toLatitude;
@@ -80,12 +80,12 @@ public class Ride extends Model{
         this.toLongitude = toLongitude;
     }
 
-    public long getRiderId() {
-        return riderId;
+    public long getVehicleId() {
+        return vehicleId;
     }
 
-    public void setRiderId(long riderId) {
-        this.riderId = riderId;
+    public void setVehicleId(long vehicleId) {
+        this.vehicleId = vehicleId;
     }
 
     public Timestamp getStartTime() {

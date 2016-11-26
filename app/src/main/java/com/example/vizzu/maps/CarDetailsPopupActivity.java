@@ -1,22 +1,20 @@
 package com.example.vizzu.maps;
 
-import android.app.ActionBar;
-import android.app.Activity;
 import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.AppCompatActivity;
 import android.util.DisplayMetrics;
+import android.view.View;
 
 /**
  * Created by vizzu on 9/21/2016.
  */
-public class Pop extends AppCompatActivity {
+public class CarDetailsPopupActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        setContentView(R.layout.popcardet);
+        setContentView(R.layout.activity_cardetpopup);
 
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setLogo(R.drawable.rs5);
@@ -29,5 +27,9 @@ public class Pop extends AppCompatActivity {
         int height=dm.heightPixels;
 
         getWindow().setLayout((int)(width*.8),(int)(height*.8));
+    }
+
+    public void closeWindow(View v){
+
     }
 }

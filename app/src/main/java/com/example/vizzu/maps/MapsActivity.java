@@ -4,30 +4,22 @@ import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
 import android.content.Intent;
 import android.graphics.Color;
-import android.graphics.Path;
-import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
-import android.widget.EditText;
-import android.widget.FrameLayout;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
-import com.activeandroid.ActiveAndroid;
 import com.akexorcist.googledirection.DirectionCallback;
 import com.akexorcist.googledirection.GoogleDirection;
 import com.akexorcist.googledirection.constant.AvoidType;
 import com.akexorcist.googledirection.constant.TransportMode;
 import com.akexorcist.googledirection.model.Direction;
-import com.akexorcist.googledirection.model.Step;
 import com.akexorcist.googledirection.util.DirectionConverter;
 import com.example.vizzu.maps.entities.User;
-import com.example.vizzu.maps.utils.DatabaseHelper;
 import com.google.android.gms.common.api.Status;
 import com.google.android.gms.location.places.AutocompleteFilter;
 import com.google.android.gms.location.places.Place;
@@ -42,11 +34,8 @@ import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.maps.model.PolylineOptions;
 import com.google.maps.android.PolyUtil;
 
-import org.w3c.dom.Text;
-
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.List;
 
 public class MapsActivity extends AppCompatActivity implements OnMapReadyCallback,View.OnClickListener {
 
@@ -253,7 +242,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         }
         if(v ==txtCarDet)
         {
-             startActivity(new Intent(MapsActivity.this,Pop.class));
+             startActivity(new Intent(MapsActivity.this,CarDetailsPopupActivity.class));
         }
 
     }
