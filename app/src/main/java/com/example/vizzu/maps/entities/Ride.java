@@ -33,11 +33,14 @@ public class Ride extends Model{
     @Column(name = "fare")
     private int fare;
 
+    @Column(name = "status")
+    private boolean status;
+
     public Ride() {
         super();
     }
 
-    public Ride(long vehicleId, double fromLatitude, double fromLongitude, double toLatitude, double toLongitude ,Timestamp startTime , int fare) {
+    public Ride(long vehicleId, double fromLatitude, double fromLongitude, double toLatitude, double toLongitude ,Timestamp startTime , int fare, boolean status) {
         this.vehicleId = vehicleId;
         this.fromLatitude = fromLatitude;
         this.fromLongitude = fromLongitude;
@@ -45,6 +48,7 @@ public class Ride extends Model{
         this.toLongitude = toLongitude;
         this.startTime = startTime;
         this.fare = fare;
+        this.status = status;
     }
 
 
@@ -102,5 +106,13 @@ public class Ride extends Model{
 
     public void setFare(int fare) {
         this.fare = fare;
+    }
+
+    public boolean isStatus() {
+        return status;
+    }
+
+    public void setStatus(boolean status) {
+        this.status = status;
     }
 }

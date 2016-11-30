@@ -32,7 +32,6 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.maps.model.PolylineOptions;
-import com.google.maps.android.PolyUtil;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -123,7 +122,6 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                                         mMap.addMarker(new MarkerOptions().position(fromLocation));
                                         mMap.addMarker(new MarkerOptions().position(toLocation));
                                         mMap.moveCamera(CameraUpdateFactory.newLatLng(fromLocation));
-                                        boolean isLocOnEdge = PolyUtil.isLocationOnEdge(fromLocation, latLngs, true);
                                         return;
                                     }
                                     else {
@@ -162,6 +160,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         }
     }
     public void execute(View view){
+        Button viewBtn = ((Button) view);
         if((fromLocation == null && toLocation == null )||(fromLocation.equals("")&& toLocation.equals("")))
 
             Toast.makeText(this, "Enter start and end address", Toast.LENGTH_LONG).show();
@@ -172,6 +171,14 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         else if(fromLocation == null || fromLocation.equals(""))
         {
             Toast.makeText(this, "Enter start address", Toast.LENGTH_LONG).show();
+        }
+        else if(viewBtn.getText().equals("Find a Ride")){
+            Intent passIntent = new Intent(MapsActivity.this, PassengerOptions.class);
+            Bundle args = new Bundle();
+            args.putParcelable("from_position", fromLocation);
+            args.putParcelable("to_position", toLocation);
+            passIntent.putExtra("bundle", args);
+            startActivity(passIntent);
         }
     }
 
